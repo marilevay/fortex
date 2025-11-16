@@ -1,24 +1,17 @@
 # ForTex
-ForTex adds a LaTeX formula button to Quill-based text editors. It was first developed for Minerva University's classroom platform and now can be adapted to work with any Quill editor so you can easily typeset equations and mathematical expressions.
+ForTex adds a flexible LaTeX formula button to Quill-based text editors. It was first developed for Minerva University's classroom platform and now can be adapted to work with any Quill editor so you can easily typeset equations and mathematical expressions.
 
 ![Demo GIF](demos/fortex-demo-video.gif)
 
 ## How to install 
 
 * Download this repo as a .zip file
-![.zip Repo Download Instruction](demos/fortex-demo5.png)
 
 * Access `chrome://extensions` and enable Developer Mode and click on "Load Unpacked:
-![Extension Manager on Chrome](demos/fortex-demo6.png)
 
-* Select the unzipped folder. This extension should open to you:
-![Unpacked Extension on Chrome](demos/fortex-demo7.png)
+* Select the unzipped folder. 
 
-* Make sure to pin the extension so it's always available at your extension bar:
-![Pinned Extension](demos/fortex-demo9.png)
-
-* Now you can access ForTex on your extension bar:
-![Extension bar Chrome](demos/fortex-demo8.png)
+* Now, just make sure to pin the extension so it's always available at your extension bar
 
 ## What's new in version 2.0
 
