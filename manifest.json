@@ -1,11 +1,11 @@
 {
-    "name": "ForumTex",
-    "description": "Create LaTeX formulas on Forum",
+    "name": "ForTex",
+    "description": "Create LaTeX formulas on Minerva University's classroom platform",
     "version": "1.0",
     "manifest_version": 3,
     "action": {
-        "default_popup": "forum-tex.html",
-        "default_icon": "forum-tex-icon.png"
+        "default_popup": "fortex.html",
+        "default_icon": "fortex-icon.png"
     },
     "content_scripts": [
         {
