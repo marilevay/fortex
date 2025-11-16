@@ -1,7 +1,7 @@
 # ForTex
 Finally adding the a LaTeX button for the text editor on Minerva University's classroom platform. Now you can finally typeset equations and mathematical expressions.
 
-![Demo GIF](emos/fortex-demo-video.gif)
+![Demo GIF](demos/fortex-demo-video.gif)
 
 ## How to install 
 
