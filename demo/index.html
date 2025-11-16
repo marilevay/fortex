@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ForTex Demo – Quill Editor</title>
+  <!-- Quill CSS from CDN -->
+  <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet" />
+  <style>
+    #editor-container {
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ForTex Demo – Quill Editor</h1>
+  <p>This is a plain Quill editor so you can test the ForTex formula button.</p>
+
+  <div class="quill">
+    <div class="ql-toolbar ql-snow"></div>
+    <div class="ql-container ql-snow">
+      <div id="editor" class="ql-editor"></div>
+    </div>
+  </div>
+
+  <!-- Quill JS from CDN -->
+  <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+  <script>
+    const toolbarOptions = [
+      ['bold', 'italic', 'underline'],
+      ['link'],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }]
+    ];
+    const quill = new Quill('.quill', {
+      modules: { toolbar: toolbarOptions },
+      theme: 'snow'
+    });
+  </script>
+</body>
+</html>

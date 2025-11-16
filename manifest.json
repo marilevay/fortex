@@ -9,7 +9,7 @@
     },
     "content_scripts": [
         {
-            "matches": ["https://forum.minerva.edu/*", "https://sle-collaboration.minervaproject.com/*", "https://class.minerva.edu/classes/*"],
+            "matches": ["https://forum.minerva.edu/*", "https://sle-collaboration.minervaproject.com/*", "https://class.minerva.edu/classes/*", "https://marilevay.github.io/forum-tex/demo/*"],
             "js": ["quillOverride.js"],
             "run_at": "document_idle",
             "all_frames": true
