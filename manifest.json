@@ -1,6 +1,6 @@
 {
     "name": "ForTex",
-    "description": "Create LaTeX formulas on Minerva University's classroom platform",
+    "description": "Create LaTeX formulas on a Quill text editor.",
     "version": "2.0",
     "manifest_version": 3,
     "action": {

@@ -1,5 +1,5 @@
 # ForTex
-Finally adding the a LaTeX button for the text editor on Minerva University's classroom platform. Now you can finally typeset equations and mathematical expressions.
+ForTex adds a LaTeX formula button to Quill-based text editors. It was first developed for Minerva University's classroom platform and now can be adapted to work with any Quill editor so you can easily typeset equations and mathematical expressions.
 
 ![Demo GIF](demos/fortex-demo-video.gif)
 
@@ -19,6 +19,13 @@ Finally adding the a LaTeX button for the text editor on Minerva University's cl
 
 * Now you can access ForTex on your extension bar:
 ![Extension bar Chrome](demos/fortex-demo8.png)
+
+## What's new in version 2.0
+
+* Now works in more environments within Minerva University's classroom platform, including:
+  * Pre-class work (PCWs) **without** needing to open a new tab.
+  * Classroom breakout editors.
+* Architecture and copy have been updated so ForTex can be more easily adapted to **any** Quill-based text editor, not just Minerva's.
 
 ## Usage and Limitations
 
