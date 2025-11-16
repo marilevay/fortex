@@ -9,9 +9,10 @@
     },
     "content_scripts": [
         {
-            "matches": ["https://sle-collaboration.minervaproject.com/?id=*", "https://sle-collaboration.minervaproject.com/?templateId=*"],
+            "matches": ["https://forum.minerva.edu/*", "https://sle-collaboration.minervaproject.com/*", "https://class.minerva.edu/classes/*"],
             "js": ["quillOverride.js"],
-            "run_at": "document_idle"
+            "run_at": "document_idle",
+            "all_frames": true
         }
     ]
 }
