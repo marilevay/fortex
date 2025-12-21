@@ -20,11 +20,7 @@ ForTex adds a flexible LaTeX formula button to Quill-based text editors. It was 
 * Now, just make sure to pin the extension so it's always available at your extension bar
 
 ## We have version 2.0! What's new?
-
-* Now works in more environments within Minerva University's classroom platform, including:
-  * Pre-class work (PCWs) **without** needing to open a new tab.
-  * Classroom breakout editors.
-* Architecture and copy have been updated so ForTex can be more easily adapted to **any** Quill-based text editor, not just Minerva's.
+* Architecture has been updated so ForTex can be more easily adapted to **any** Quill-based text editor.
 
 ## Privacy and data:
 * ForTex runs only on pages that match the configured URLs (Quill-based editors).
