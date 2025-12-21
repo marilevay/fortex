@@ -4,7 +4,7 @@ If you're regularly typing equations in an external platform and ending up with 
 
 ForTex adds a flexible LaTeX formula button to Quill-based text editors. It was first developed for Minerva University's classroom platform and now can be adapted to work with any Quill editor so you can easily typeset equations and mathematical expressions.
 
-![Demo GIF](demos/fortex-demo-video.gif)
+![Demo GIF](assets/fortex-demo-video.gif)
 
 ## Key features
 * Add a LaTeX formula button to supported Quill-based text editors
