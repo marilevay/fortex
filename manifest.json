@@ -7,12 +7,9 @@
         "default_popup": "fortex.html",
         "default_icon": "fortex-icon.png"
     },
-    "content_scripts": [
-        {
-            "matches": ["https://forum.minerva.edu/*", "https://sle-collaboration.minervaproject.com/*", "https://class.minerva.edu/classes/*", "https://marilevay.github.io/forum-tex/demo/*"],
-            "js": ["quillOverride.js"],
-            "run_at": "document_idle",
-            "all_frames": true
-        }
-    ]
+    "background": {
+        "service_worker": "background.js"
+    },
+    "options_page": "options.html",
+    "permissions": ["storage", "scripting", "tabs"]
 }

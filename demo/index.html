@@ -5,8 +5,24 @@
   <title>ForTex Demo – Quill Editor</title>
   <!-- Quill CSS from CDN -->
   <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet" />
+  <!-- KaTeX for rendering formulas in the demo environment -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+  <script>
+    // Fallback: if KaTeX fails to load from CDN, provide a minimal stub so
+    // Quill's formula module can call katex.render without throwing.
+    if (typeof window.katex === 'undefined') {
+      window.katex = {
+        render: function(tex, el) {
+          if (!el) return;
+          // Simple fallback: show the raw LaTeX in the element.
+          el.textContent = tex || '';
+        }
+      };
+    }
+  </script>
   <style>
-    #editor-container {
+    #editor {
       height: 200px;
     }
   </style>
@@ -16,24 +32,56 @@
   <p>This is a plain Quill editor so you can test the ForTex formula button.</p>
 
   <div class="quill">
-    <div class="ql-toolbar ql-snow"></div>
-    <div class="ql-container ql-snow">
-      <div id="editor" class="ql-editor"></div>
-    </div>
+    <div id="toolbar" class="ql-toolbar ql-snow"></div>
+    <div id="editor"></div>
   </div>
 
-  <!-- Quill JS from CDN -->
+  <!-- Quill JS from CDN (loaded after KaTeX so the formula module sees `katex`) -->
   <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
   <script>
-    const toolbarOptions = [
-      ['bold', 'italic', 'underline'],
-      ['link'],
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }]
-    ];
-    const quill = new Quill('.quill', {
-      modules: { toolbar: toolbarOptions },
-      theme: 'snow'
-    });
+    // Replace Quill's built-in formula format on the demo page so it does not
+    // rely on katex.render at all. This keeps the demo simple and avoids
+    // console errors while still allowing ForTex to insert formula content.
+    (function () {
+      if (!window.Quill) return;
+      try {
+        const Embed = window.Quill.import('blots/block/embed');
+        class DemoFormulaBlot extends Embed {
+          static create(value) {
+            const node = super.create();
+            node.textContent = value || '';
+            return node;
+          }
+
+          static value(node) {
+            return node.textContent || '';
+          }
+        }
+        DemoFormulaBlot.blotName = 'formula';
+        DemoFormulaBlot.tagName = 'SPAN';
+        DemoFormulaBlot.className = 'ql-formula-demo';
+
+        window.Quill.register(DemoFormulaBlot, true);
+      } catch (e) {
+        console.warn('[ForTex demo] Failed to override Quill formula blot', e);
+      }
+
+      // Initialize a basic Quill editor with a toolbar so ForTex can attach its formula button
+      const toolbarOptions = [
+        ['bold', 'italic', 'underline'],
+        ['link'],
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }]
+      ];
+
+      // Use the #toolbar element so Quill will decorate it as .ql-toolbar inside .quill,
+      // which is what quillOverride.js expects when attaching the ForTex button.
+      const quill = new window.Quill('#editor', {
+        modules: {
+          toolbar: '#toolbar',
+        },
+        theme: 'snow',
+      });
+    }());
   </script>
 </body>
 </html>

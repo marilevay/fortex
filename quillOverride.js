@@ -1,6 +1,28 @@
 // set the tooltip offset from the button
 const TOOLTIP_OFFSET = 8;
 
+// basic debug logging to verify the content script is active
+try {
+  console.log('[ForTex] content script loaded on', window.location.href);
+} catch (_) {}
+
+if (typeof window !== 'undefined' && window.__FORTEX_INITIALIZED__) {
+  try {
+    console.log('[ForTex] already initialized on', window.location.href);
+  } catch (_) {}
+} else if (typeof window !== 'undefined') {
+  window.__FORTEX_INITIALIZED__ = true;
+}
+
+if (typeof window !== 'undefined' && typeof window.katex === 'undefined') {
+  window.katex = {
+    render: function (tex, el) {
+      if (!el) return;
+      el.textContent = tex || '';
+    },
+  };
+}
+
 // attach enter to save formula
 function attachEnterToSave(tooltip, ta) {
   if (ta.dataset.formulaEnterAttached) return;
@@ -182,6 +204,10 @@ function addFormulaBtnToToolbar(toolbar) {
       toolbar.appendChild(button);
     }
   }
+
+  try {
+    console.log('[ForTex] formula button initialized for a toolbar on', window.location.href);
+  } catch (_) {}
 
   // Ensure the Quill link button switches the shared tooltip to link mode
   if (!toolbar.dataset.linkHandlerAttached) {
@@ -512,10 +538,29 @@ function ensureTooltipStyles() {
 
 ensureTooltipStyles();
 
-// run
-const observer = new MutationObserver(() => {
-  document.querySelectorAll('.quill .ql-toolbar').forEach((toolbar) => {
+function scanAndEnhanceToolbars() {
+  // Support both the standard Quill toolbar (.ql-toolbar) and the #toolbar
+  // used on the public demo page.  not require a specific ancestor wrapper
+  // so this works with slightly different DOM structures.
+  document.querySelectorAll('.ql-toolbar, #toolbar').forEach((toolbar) => {
+    try {
+      console.log('[ForTex] detected toolbar element for enhancement on', window.location.href);
+    } catch (_) {}
     addFormulaBtnToToolbar(toolbar);
   });
-});
-observer.observe(document.body, { childList: true, subtree: true });
+}
+
+if (typeof window !== 'undefined' && window.__FORTEX_SIDE_EFFECTS_DONE__) {
+  // Avoid re-attaching observers / duplicating global side effects on reinjection.
+} else if (typeof window !== 'undefined') {
+  window.__FORTEX_SIDE_EFFECTS_DONE__ = true;
+
+  // Initial scan in case toolbars are present before the observer fires
+  scanAndEnhanceToolbars();
+
+  // run
+  const observer = new MutationObserver(() => {
+    scanAndEnhanceToolbars();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+}
