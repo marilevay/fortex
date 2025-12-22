@@ -1,0 +1,81 @@
+@import url('./theme.css');
+
+body {
+  padding: 16px;
+  font-size: 14px;
+}
+
+.page {
+  max-width: 760px;
+}
+
+.card {
+  padding: 16px;
+}
+
+.header {
+  margin-bottom: 8px;
+}
+
+.logo {
+  width: 34px;
+  height: 34px;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+h2 {
+  margin: 14px 0 8px;
+  font-size: 14px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 12px 0;
+}
+
+input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  outline: none;
+}
+
+input::placeholder {
+  color: rgba(245, 245, 245, 0.5);
+}
+
+button {
+  background: #ffffff;
+  color: #111;
+  padding: 10px 12px;
+}
+
+button:hover { background: rgba(255, 255, 255, 0.92); }
+
+ul {
+  padding-left: 18px;
+}
+
+li {
+  margin: 8px 0;
+}
+
+code {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: 8px;
+  color: var(--text);
+}

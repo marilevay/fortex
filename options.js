@@ -1,6 +1,15 @@
 const domainInput = document.getElementById('domain');
 const addBtn = document.getElementById('add');
 const listEl = document.getElementById('list');
+const statusEl = document.getElementById('status');
+
+try {
+  console.log('[ForTex][options] options.js loaded');
+} catch (_) {}
+
+if (statusEl) {
+  statusEl.textContent = 'Settings page loaded.';
+}
 
 function normalizeToOriginPattern(raw) {
   const cleaned = String(raw || '')
@@ -70,11 +79,16 @@ addBtn.addEventListener('click', async () => {
   try {
     const originPattern = normalizeToOriginPattern(domainInput.value);
 
+    if (statusEl) statusEl.textContent = `Requesting permission for ${originPattern} ...`;
+
     const granted = await chrome.permissions.request({
       origins: [originPattern],
     });
 
-    if (!granted) return;
+    if (!granted) {
+      if (statusEl) statusEl.textContent = 'Permission request was canceled.';
+      return;
+    }
 
     const allowed = await getAllowedOrigins();
     if (!allowed.includes(originPattern)) {
@@ -83,8 +97,10 @@ addBtn.addEventListener('click', async () => {
     }
 
     domainInput.value = '';
+    if (statusEl) statusEl.textContent = `Allowed: ${originPattern}`;
     await render();
   } catch (e) {
+    if (statusEl) statusEl.textContent = 'Error: ' + (e && e.message ? e.message : String(e));
     alert(e && e.message ? e.message : String(e));
   }
 });

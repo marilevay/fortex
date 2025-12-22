@@ -6,6 +6,8 @@ ForTex adds a flexible LaTeX formula button to Quill-based text editors. It was 
 
 ![Demo GIF](assets/fortex-demo-video.gif)
 
+[Live demo](https://marilevay.github.io/fortex/demo/)
+
 ## Key features
 * Add a LaTeX formula button to supported Quill-based text editors
 * Type LaTeX code (similar to Overleaf) and insert rendered formulas directly into the editor

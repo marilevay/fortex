@@ -1,0 +1,91 @@
+@import url('./theme.css');
+
+body {
+  width: 420px;
+  height: 560px;
+  padding: 14px;
+  font-size: 13.5px;
+}
+
+.card {
+  height: 100%;
+  padding: 14px;
+  overflow: auto;
+}
+
+.header {
+  margin-bottom: 8px;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  margin: 14px 0 8px;
+  font-size: 14px;
+}
+
+p {
+  margin: 8px 0;
+}
+
+.actions {
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.btn-row {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  padding: 9px 12px;
+}
+
+#enable-site {
+  background: #ffffff;
+  color: #111;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+#enable-site:hover {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+#site-status {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+}
+
+ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+li { margin: 8px 0; }
+
+img {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  margin: 10px 0 4px;
+}
+
+.inline-icon {
+  vertical-align: middle;
+  margin-left: 6px;
+  opacity: 0.95;
+}
+
+.inline-icon .ql-fill {
+  fill: #ffffff;
+}

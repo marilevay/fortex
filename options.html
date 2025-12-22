@@ -3,55 +3,37 @@
   <head>
     <meta charset="utf-8" />
     <title>ForTex Settings</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 16px;
-        max-width: 720px;
-      }
-      .row {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        margin-bottom: 12px;
-      }
-      input {
-        flex: 1;
-        padding: 8px;
-      }
-      button {
-        padding: 8px 12px;
-      }
-      ul {
-        padding-left: 18px;
-      }
-      code {
-        background: #f4f4f4;
-        padding: 2px 4px;
-        border-radius: 4px;
-      }
-    </style>
+    <link rel="icon" href="fortex-icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="fortex-icon.png" />
+    <link rel="stylesheet" href="styles/options.css" />
   </head>
   <body>
-    <h1>ForTex Settings</h1>
+    <div class="page">
+      <div class="card">
+        <div class="header">
+          <img class="logo" src="fortex-icon.png" alt="ForTex" />
+          <h1>ForTex Settings</h1>
+        </div>
 
-    <p>
-      Add the sites where ForTex should run automatically. You will be prompted by Chrome to grant
-      permission for each site once.
-    </p>
+        <p>
+          Add the websites where you want ForTex to run. Chrome will prompt you to grant access once per site so ForTex can modify Quill editor pages and add the LaTeX button. This list is saved locally in Chrome and is never transmitted or shared.
+        </p>
 
-    <div class="row">
-      <input id="domain" placeholder="example.com" autocomplete="off" />
-      <button id="add">Add site</button>
+        <div class="row">
+          <input id="domain" placeholder="example.com" autocomplete="off" />
+          <button id="add">Add site</button>
+        </div>
+
+        <p id="status"></p>
+
+        <h2>Allowed sites</h2>
+        <ul id="list"></ul>
+
+        <p>
+          Tip: enter a domain like <code>canvas.instructure.com</code> or <code>your-school.edu</code>.
+        </p>
+      </div>
     </div>
-
-    <h2>Allowed sites</h2>
-    <ul id="list"></ul>
-
-    <p>
-      Tip: enter a domain like <code>canvas.instructure.com</code> or <code>your-school.edu</code>.
-    </p>
 
     <script src="options.js"></script>
   </body>

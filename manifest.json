@@ -11,5 +11,6 @@
         "service_worker": "background.js"
     },
     "options_page": "options.html",
-    "permissions": ["storage", "scripting", "tabs"]
+    "permissions": ["storage", "scripting", "tabs"],
+    "optional_host_permissions": ["https://*/*", "http://*/*"]
 }
