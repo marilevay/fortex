@@ -1,7 +1,7 @@
 {
     "name": "ForTex",
     "description": "Create flexible-sized, multi-line LaTeX formulas on a Quill text editor.",
-    "version": "2.0",
+    "version": "2.1",
     "manifest_version": 3,
     "action": {
         "default_popup": "fortex.html",
